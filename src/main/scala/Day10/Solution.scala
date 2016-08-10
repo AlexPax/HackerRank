@@ -25,7 +25,7 @@ object Solution {
     }
 
     def calc_(arr:List[Int], globMax:Int, currMax:Int):Int = arr match {
-      case Nil => if (globMax < currMax) currMax else globMax
+      case Nil => if (globMax < currMax) currMax else globMax       //fail detected
       case 1 :: tail => calc_(arr.tail, globMax, currMax+1)
       case 0 :: tail => calc_(arr.tail, if (globMax > currMax) globMax else currMax, 0)
     }
