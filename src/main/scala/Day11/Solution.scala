@@ -15,16 +15,23 @@ object Solution {
 
     def smallMass(arr:Array[Array[Int]], x:Int, y:Int) = {
       for {
-        i <- 0 to 2
-        j <- 0 to 2
+        i <- x to x+2
+        j <- y to y+2
       } yield arr(i)(j)
     }
 
-    val list = smallMass(arr, 0, 0).toList.zipWithIndex.filter(_._2 != 5).filter(_._2 != 3).map(_._1)
+    def sumOfSmallMass(arr: Array[Array[Int]]): Int = {
+      var maxSum = -999999999
+      for {
+        i <- 0 to 3
+        j <- 0 to 3
+      } {
+        val num = smallMass(arr, i, j).toList.zipWithIndex.filter(_._2 != 5).filter(_._2 != 3).map(_._1).sum
+        if (num > maxSum) maxSum = num
+      }
+      maxSum
+    }
 
-
-//    println(smallMass(arr,0,0).foreach(println))
-//    println(smallMass(arr,0,0))
-    println(list)
+    println(sumOfSmallMass(arr))
   }
 }
