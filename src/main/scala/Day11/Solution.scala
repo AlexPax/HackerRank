@@ -18,7 +18,7 @@ object Solution {
         i <- x to x+2
         j <- y to y+2
       } yield arr(i)(j)
-    }
+    }j
 
     def sumOfSmallMass(arr: Array[Array[Int]]): Int = {
       var maxSum = -999999999
